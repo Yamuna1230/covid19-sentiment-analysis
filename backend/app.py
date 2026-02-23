@@ -10,9 +10,9 @@ CORS(app)
 # ----------------------------
 # MongoDB Connection
 # ----------------------------
-client = MongoClient(
-    "mongodb+srv://newuser:user123@cluster0.52sodad.mongodb.net/?retryWrites=true&w=majority"
-)
+import os
+
+client = MongoClient(os.environ.get("MONGO_URI"))
 
 db = client["covid_db"]
 collection = db["tweets"]
@@ -93,5 +93,7 @@ def stats():
 # ----------------------------
 # Run Server
 # ----------------------------
+# if __name__ == "__main__":
+#     app.run(debug=True)
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)
