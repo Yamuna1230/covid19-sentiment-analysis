@@ -39,7 +39,7 @@ def get_sentiment(text):
 @app.route("/analyze")
 def analyze():
     try:
-        df = pd.read_csv("dataset.csv")
+        df = pd.read_csv("small_dataset.csv")
 
         # Drop rows where clean_tweet is missing
         df = df.dropna(subset=["clean_tweet"])

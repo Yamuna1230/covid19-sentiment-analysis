@@ -14,7 +14,7 @@ function App() {
   const [stats, setStats] = useState(null);
 
   useEffect(() => {
-    axios.get("http://127.0.0.1:5000/stats")
+    axios.get("https://covid-backend.onrender.com/stats")
       .then(response => {
         setStats(response.data);
       })
